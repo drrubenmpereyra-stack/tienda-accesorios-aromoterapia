@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accesorios y Sets Esenciales - Seminario de Aromaterapia</title>
+    <style>
+        :root {
+            --blue-border: #1d3557;
+            --lavender: #a8dadc;
+            --white: #ffffff;
+            --bg-color: #f1faee;
+            --accent: #457b9d;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: #333;
+            margin: 0;
+            padding: 30px 20px;
+        }
+        .store-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            border-top: 6px solid var(--blue-border);
+        }
+        h1 {
+            color: var(--blue-border);
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+        p.subtitle {
+            color: #666;
+            margin-bottom: 2.5rem;
+            font-size: 0.95rem;
+            text-align: center;
+        }
+        .grid-products {
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            margin-bottom: 3rem;
+        }
+        .product-card {
+            background: var(--white);
+            border: 2px solid var(--blue-border);
+            border-radius: 10px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 2px solid var(--lavender);
+            margin-bottom: 1rem;
+        }
+        .product-card h3 {
+            color: var(--blue-border);
+            font-size: 1.15rem;
+            margin-bottom: 0.5rem;
+        }
+        .product-card p {
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+        .price {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #2b9348;
+            margin-bottom: 1rem;
+        }
+        .btn-custom {
+            background-color: var(--accent);
+            color: var(--white);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.2s;
+            text-decoration: none;
+            display: inline-block;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .btn-custom:hover {
+            background-color: var(--blue-border);
+        }
+        .modal-checkout {
+            display: none;
+            background: #fafafa;
+            padding: 2.5rem;
+            border-radius: 12px;
+            border: 3px solid var(--blue-border);
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+            text-align: left;
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+            color: var(--blue-border);
+        }
+        .form-group input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="store-container">
+        <h1>Accesorios y Sets Esenciales</h1>
+        <p class="subtitle">Equipamiento clínico, difusores ultrasónicos y aceites esenciales de máxima pureza.</p>
+        
+        <div class="grid-products" id="productGrid">
+            <!-- Los productos se cargan dinámicamente -->
+        </div>
+
+        <div id="modalCheckoutContainer" class="modal-checkout">
+            <h3 style="color: var(--blue-border); margin-bottom: 1rem; text-align: center;">Finalizar Pedido por Transferencia</h3>
+            <div id="resumenPedidoBox" style="background: #f8f9fa; padding: 1rem; border-radius: 6px; margin-bottom: 1.5rem; font-size: 0.95rem;"></div>
+            
+            <div style="background: #e9ecef; padding: 1.2rem; border-radius: 8px; margin-bottom: 1.5rem; font-size: 0.95rem; display: flex; flex-direction: column; align-items: center; gap: 1rem;">
+                <div style="width: 100%;">
+                    <b style="color: var(--blue-border);">Datos Bancarios para Transferencia / QR:</b><br>
+                    Titular: <b>RUBEN M PEREYRA</b><br>
+                    Alias: <b style="font-family: monospace; font-size: 1.05rem; color: #1d3557;">20169031275.belo</b><br>
+                    CVU: <b style="font-family: monospace; font-size: 1.05rem; color: #1d3557;">0000139300000006331902</b>
+                </div>
+                <div style="text-align: center;">
+                    <img src="QR.jpeg" alt="QR de Pago" style="width: 160px; height: 160px; object-fit: contain; border-radius: 6px; border: 2px solid var(--blue-border); background: #fff;" onerror="this.src='https://via.placeholder.com/160?text=QR+No+Encontrado'">
+                    <span style="font-size: 0.8rem; color: #555; display: block; margin-top: 0.3rem;">Escanee para abonar</span>
+                </div>
+                <span style="font-size: 0.85rem; color: #555; width: 100%; margin-top: 0.2rem;">💡 Realice la transferencia o escanee el QR y haga clic en el botón verde para enviar el comprobante y detalle de su pedido por WhatsApp.</span>
+            </div>
+
+            <form id="formCheckout">
+                <div class="form-group">
+                    <label>Su Nombre y Apellido</label>
+                    <input type="text" id="chkNombre" required placeholder="Ingrese su nombre...">
+                </div>
+                <div class="form-group">
+                    <label>Dirección de Envío / Localidad</label>
+                    <input type="text" id="chkDireccion" required placeholder="Calle, número, ciudad...">
+                </div>
+                <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                    <button type="submit" class="btn-custom" style="flex: 1; background-color: #2b9348 !important;">📲 Enviar Pedido por WhatsApp</button>
+                    <button type="button" id="btnCerrarModal" class="btn-custom" style="flex: 1; background-color: #6c757d !important;">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const catalogoComercial = [
+            {
+                id: "dif-1",
+                nombre: "Difusor de aroma ultrasónico Satélite AH713 130 ml LED",
+                precio: 15500,
+                imagen: "Difusor1.jpg",
+                descripcion: "Diseño moderno en color marrón, capacidad de 130 ml, apagado automático y funcionamiento ultrasónico silencioso."
+            },
+            {
+                id: "dif-2",
+                nombre: "Difusor de aroma ultrasónico Satélite AH6800 200 ml LED",
+                precio: 38750,
+                imagen: "Difusor2.jpg",
+                descripcion: "Capacidad de 200 ml, tecnología ultrasónica silenciosa, luz LED suave y temporizador integrado."
+            },
+            {
+                id: "dif-3",
+                nombre: "Difusor de aroma ultrasónico Satélite AH6712 200 ml LED",
+                precio: 46500,
+                imagen: "Difusor3.jpg",
+                descripcion: "Diseño compacto y elegante con luz ambiental LED cálida y función de temporizador."
+            },
+            {
+                id: "dif-4",
+                nombre: "Difusor de aroma ultrasónico Satellite A-H6709 260ml",
+                precio: 40000,
+                imagen: "Difusor4.jpg",
+                descripcion: "Capacidad de 260 ml, función de temporizador y humidificación avanzada con luces cálidas integradas."
+            },
+            {
+                id: "dif-5",
+                nombre: "Difusor de aroma ultrasónico Satellite A-H6805 400ml",
+                precio: 40000,
+                imagen: "Difusor5.jpg",
+                descripcion: "Gran capacidad de 400 ml, hasta 6 horas de uso continuo, sensor de seguridad de apagado automático y luz LED."
+            },
+            {
+                id: "dif-6",
+                nombre: "Difusor de aroma ultrasónico Satellite A-H6710 200ml",
+                precio: 15500,
+                imagen: "Difusor6.jpg",
+                descripcion: "Diseño vertical estriado en tono madera, tecnología ultrasónica de vapor frío e iluminación LED suave."
+            },
+            {
+                id: "aceite-1",
+                nombre: "Aceites Esenciales Nature's Truth & Now (Variedades x 15ml / 30ml)",
+                precio: 18600,
+                imagen: "Aceites1.jpg",
+                descripcion: "Variedades puras: Lemongrass, Peace, Cinnamon, Lemon, Energy, Rosemary, Spearmint (30ml), Lime (30ml) y Orange Sweet."
+            }
+        ];
+
+        const grid = document.getElementById("productGrid");
+        let productoSeleccionado = null;
+
+        function renderizarTienda() {
+            grid.innerHTML = "";
+            catalogoComercial.forEach(prod => {
+                const card = document.createElement("div");
+                card.className = "product-card";
+                card.innerHTML = `
+                    <div>
+                        <img src="${prod.imagen}" alt="${prod.nombre}" onerror="this.src='https://via.placeholder.com/280x200?text=Producto'">
+                        <h3>${prod.nombre}</h3>
+                        <p>${prod.descripcion}</p>
+                    </div>
+                    <div>
+                        <div class="price">$ ${prod.precio.toLocaleString('es-AR')}</div>
+                        <button class="btn-custom btn-comprar" data-id="${prod.id}">🛒 Encargar / Comprar</button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+
+            document.querySelectorAll(".btn-comprar").forEach(btn => {
+                btn.addEventListener("click", (e) => {
+                    const id = e.target.getAttribute("data-id");
+                    productoSeleccionado = catalogoComercial.find(p => p.id === id);
+                    
+                    const modal = document.getElementById("modalCheckoutContainer");
+                    const resumen = document.getElementById("resumenPedidoBox");
+                    
+                    modal.style.display = "block";
+                    resumen.innerHTML = `
+                        <b>Producto seleccionado:</b> ${productoSeleccionado.nombre}<br>
+                        <b>Precio a abonar:</b> <span style="color: #2b9348; font-weight: bold; font-size: 1.1rem;">$ ${productoSeleccionado.precio.toLocaleString('es-AR')}</span>
+                    `;
+                    modal.scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+        }
+
+        document.getElementById("formCheckout").addEventListener("submit", (e) => {
+            e.preventDefault();
+            if (!productoSeleccionado) return;
+
+            const nombre = document.getElementById("chkNombre").value.trim();
+            const direccion = document.getElementById("chkDireccion").value.trim();
+            const mensajeWp = `Hola Dr. Rubén, deseo realizar el siguiente pedido:%0A%0A*Producto:* ${productoSeleccionado.nombre}%0A*Precio:* $ ${productoSeleccionado.precio.toLocaleString('es-AR')}%0A*Comprador:* ${nombre}%0A*Dirección de envío:* ${direccion}%0A%0AYa realicé la transferencia / escaneo del QR. Adjunto comprobante.`;
+            
+            // Número de WhatsApp configurado: +54 9 351 7648987
+            const numeroWhatsApp = "5493517648987"; 
+            window.open(`https://wa.me/${numeroWhatsApp}?text=${mensajeWp}`, '_blank');
+        });
+
+        document.getElementById("btnCerrarModal").addEventListener("click", () => {
+            document.getElementById("modalCheckoutContainer").style.display = "none";
+        });
+
+        renderizarTienda();
+    </script>
+</body>
+</html>
