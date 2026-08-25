@@ -142,18 +142,14 @@
             <h3 style="color: var(--blue-border); margin-bottom: 1rem; text-align: center;">Finalizar Pedido por Transferencia</h3>
             <div id="resumenPedidoBox" style="background: #f8f9fa; padding: 1rem; border-radius: 6px; margin-bottom: 1.5rem; font-size: 0.95rem;"></div>
             
-            <div style="background: #e9ecef; padding: 1.2rem; border-radius: 8px; margin-bottom: 1.5rem; font-size: 0.95rem; display: flex; flex-direction: column; align-items: center; gap: 1rem;">
-                <div style="width: 100%;">
-                    <b style="color: var(--blue-border);">Datos Bancarios para Transferencia / QR:</b><br>
+            <div style="background: #e9ecef; padding: 1.2rem; border-radius: 8px; margin-bottom: 1.5rem; font-size: 0.95rem; display: flex; flex-direction: column; gap: 0.8rem;">
+                <div>
+                    <b style="color: var(--blue-border); font-size: 1.05rem;">Datos Bancarios para Transferencia:</b><br>
                     Titular: <b>RUBEN M PEREYRA</b><br>
-                    Alias: <b style="font-family: monospace; font-size: 1.05rem; color: #1d3557;">20169031275.belo</b><br>
-                    CVU: <b style="font-family: monospace; font-size: 1.05rem; color: #1d3557;">0000139300000006331902</b>
+                    Alias: <b style="font-family: monospace; font-size: 1.1rem; color: #1d3557;">20169031275.belo</b><br>
+                    CVU: <b style="font-family: monospace; font-size: 1.1rem; color: #1d3557;">0000139300000006331902</b>
                 </div>
-                <div style="text-align: center;">
-                    <img src="QR.jpeg" alt="QR de Pago" style="width: 160px; height: 160px; object-fit: contain; border-radius: 6px; border: 2px solid var(--blue-border); background: #fff;" onerror="this.src='https://via.placeholder.com/160?text=QR+No+Encontrado'">
-                    <span style="font-size: 0.8rem; color: #555; display: block; margin-top: 0.3rem;">Escanee para abonar</span>
-                </div>
-                <span style="font-size: 0.85rem; color: #555; width: 100%; margin-top: 0.2rem;">💡 Realice la transferencia o escanee el QR y haga clic en el botón verde para enviar el comprobante y detalle de su pedido por WhatsApp.</span>
+                <span style="font-size: 0.85rem; color: #555; margin-top: 0.2rem;">💡 Realice la transferencia utilizando los datos anteriores y haga clic en el botón verde para enviar el detalle de su pedido junto con el comprobante por WhatsApp.</span>
             </div>
 
             <form id="formCheckout">
@@ -272,9 +268,8 @@
 
             const nombre = document.getElementById("chkNombre").value.trim();
             const direccion = document.getElementById("chkDireccion").value.trim();
-            const mensajeWp = `Hola Dr. Rubén, deseo realizar el siguiente pedido:%0A%0A*Producto:* ${productoSeleccionado.nombre}%0A*Precio:* $ ${productoSeleccionado.precio.toLocaleString('es-AR')}%0A*Comprador:* ${nombre}%0A*Dirección de envío:* ${direccion}%0A%0AYa realicé la transferencia / escaneo del QR. Adjunto comprobante.`;
+            const mensajeWp = `Hola Dr. Rubén, deseo realizar el siguiente pedido:%0A%0A*Producto:* ${productoSeleccionado.nombre}%0A*Precio:* $ ${productoSeleccionado.precio.toLocaleString('es-AR')}%0A*Comprador:* ${nombre}%0A*Dirección de envío:* ${direccion}%0A%0AYa realicé la transferencia bancaria. Adjunto comprobante.`;
             
-            // Número de WhatsApp configurado: +54 9 351 7648987
             const numeroWhatsApp = "5493517648987"; 
             window.open(`https://wa.me/${numeroWhatsApp}?text=${mensajeWp}`, '_blank');
         });
